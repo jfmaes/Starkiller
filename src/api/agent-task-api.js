@@ -166,6 +166,18 @@ export function getJobs(sessionId) {
     .catch((error) => Promise.reject(handleError(error)));
 }
 
+/**
+ * Kill a background job on an agent.
+ * @param {string} sessionId agent sessionId
+ * @param {number} jobId job ID to kill
+ */
+export function killJob(sessionId, jobId) {
+  return axios
+    .post(`/agents/${sessionId}/tasks/kill_job`, { id: jobId })
+    .then(({ data }) => data)
+    .catch((error) => Promise.reject(handleError(error)));
+}
+
 export function updateProxies(sessionId, proxies) {
   return axios
     .post(`/agents/${sessionId}/tasks/proxy_list`, proxies)

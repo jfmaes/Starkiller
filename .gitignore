@@ -27,3 +27,5 @@ yarn-error.log*
 
 #Electron-builder output
 /dist_electron
+
+/dist/assets*
